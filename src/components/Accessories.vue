@@ -1,38 +1,38 @@
 <template>
   <form>
     <h2>Accessories</h2>
-    <fieldset>
+    <div class="input-wrapper">
       <input type="checkbox" id="top-hat" value="topHat" @change="updateAccessories">
       <label for="top-hat">Top hat</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="bowler-hat" value="bowlerHat" @change="updateAccessories">
       <label for="bowler-hat">Bowler hat</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="handlebar-mustache" value="handlebarMustache" @change="updateAccessories">
       <label for="handlebar-mustache">Handlebar mustache</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="toothbrush-mustache" value="toothbrushMustache" @change="updateAccessories">
       <label for="toothbrush-mustache">Toothbrush mustache<br>(guaranteed 0% fascist)</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="dali-mustache" value="daliMustache" @change="updateAccessories">
       <label for="dali-mustache">Dali mustache</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="monocle" value="monocle" @change="updateAccessories">
       <label for="monocle">Monocle</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="smoking-pipe" value="smokingPipe" @change="updateAccessories">
       <label for="smoking-pipe">Smoking pipe</label>
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="che-beret" value="cheBeret" @change="updateAccessories">
       <label for="che-beret">El Che's beret</label>
-    </fieldset>
+    </div>
   </form>
 </template>
 
@@ -53,9 +53,9 @@
     font-family: 'Old English Five', sans-serif;
   }
 
-  fieldset {
+  .input-wrapper {
     display: flex;
-    border: none;
+    margin-bottom: 10px;
   }
 
   input[type='checkbox'] {
@@ -91,6 +91,7 @@
     }
 
     + label {
+      margin-left: 10px;
       cursor: pointer;
     }
   }

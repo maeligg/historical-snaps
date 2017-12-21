@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Historical <img src="./assets/camera.png" alt="camera" class="camera"> snaps</h1>
+      <h1>Historical <img src="./assets/camera.png" alt="camera" class="camera"> Snaps</h1>
       <div class="main-wrapper">
         <Video :filter="selectedFilter" :accessories="accessories"></Video>
         <section class="sidebar">

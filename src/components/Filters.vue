@@ -63,7 +63,7 @@
   &:checked + label:after {
      content:'\2022';
      position:absolute;
-     top:0px;
+     top:1px;
      font-size:40px;
      line-height:20px;
   }
