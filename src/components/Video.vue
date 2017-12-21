@@ -1,5 +1,5 @@
 <template>
-  <div class="webcam" :class="filter">
+  <section class="webcam" :class="filter">
     <video class="video" width="500" height="400" preload autoplay loop muted></video>
     <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
     <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
@@ -10,7 +10,7 @@
     <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
     <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
     <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
-  </div>
+  </section>
 </template>
 
 <script>
@@ -126,12 +126,13 @@
     position: relative;
     width: 500px;
     height: 400px;
+    margin-right: 40px;
   }
 
   .video {
     height: 100%;
     width: 100%;
-    border: 2px solid #055e86;
+    border: 2px solid #000;
   }
 
   .canvas {
