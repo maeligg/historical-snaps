@@ -10,6 +10,10 @@
       <label for="bowler-hat">Bowler hat</label>
     </div>
     <div class="input-wrapper">
+      <input type="checkbox" id="che-beret" value="cheBeret" @change="updateAccessories">
+      <label for="che-beret">El Che's beret</label>
+    </div>
+    <div class="input-wrapper">
       <input type="checkbox" id="handlebar-mustache" value="handlebarMustache" @change="updateAccessories">
       <label for="handlebar-mustache">Handlebar mustache</label>
     </div>
@@ -28,10 +32,6 @@
     <div class="input-wrapper">
       <input type="checkbox" id="smoking-pipe" value="smokingPipe" @change="updateAccessories">
       <label for="smoking-pipe">Smoking pipe</label>
-    </div>
-    <div class="input-wrapper">
-      <input type="checkbox" id="che-beret" value="cheBeret" @change="updateAccessories">
-      <label for="che-beret">El Che's beret</label>
     </div>
   </form>
 </template>

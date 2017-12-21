@@ -3,10 +3,11 @@
     <div class="container">
       <h1>Historical <img src="./assets/camera.png" alt="camera" class="camera"> Snaps</h1>
       <div class="main-wrapper">
-        <Video :filter="selectedFilter" :accessories="accessories"></Video>
+        <Video :filter="selectedFilter" :accessories="accessories" :foreground="selectedForeground"></Video>
         <section class="sidebar">
           <Filters :filter="selectedFilter" :change-filter="changeFilter"></Filters>
           <Accessories :change-accessories="changeAccessories"></Accessories>
+          <Foregrounds :change-foreground="changeForeground"></Foregrounds>
         </section>
       </div>
     </div>
@@ -18,6 +19,7 @@
   import Video from './components/Video';
   import Filters from './components/Filters';
   import Accessories from './components/Accessories';
+  import Foregrounds from './components/Foregrounds';
 
   export default {
     name: 'app',
@@ -25,11 +27,13 @@
       Video,
       Filters,
       Accessories,
+      Foregrounds,
     },
     data() {
       return {
         selectedFilter: 'sepia',
         accessories: [],
+        selectedForeground: '',
       };
     },
     methods: {
@@ -45,6 +49,9 @@
             this.accessories.splice(index, 1);
           }
         }
+      },
+      changeForeground(foreground) {
+        this.selectedForeground = foreground;
       },
     },
   };

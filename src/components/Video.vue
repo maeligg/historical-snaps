@@ -1,5 +1,6 @@
 <template>
   <section class="webcam" :class="filter">
+    <div class="foreground" :class="foreground"></div>
     <video class="video" width="500" height="400" preload autoplay loop muted></video>
     <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
     <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
@@ -23,7 +24,7 @@
 
   export default {
     name: 'Video',
-    props: ['filter', 'accessories'],
+    props: ['filter', 'accessories', 'foreground'],
 
     data() {
       return {
@@ -121,26 +122,29 @@
   };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .webcam {
     position: relative;
     width: 500px;
     height: 400px;
     margin-right: 40px;
-  }
-
-  .video {
-    height: 100%;
-    width: 100%;
     border: 2px solid #000;
   }
 
-  .canvas {
+  .foreground, .canvas, .video {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+  }
+
+  .foreground {
+    z-index: 10;
+
+    &.comrades {
+      background-image: url('../assets/comrades.png');
+    }
   }
 
   .grayscale {
