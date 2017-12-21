@@ -141,9 +141,21 @@
 
   .foreground {
     z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &.frame {
+      background-image: url('../assets/frame.png');
+    }
 
     &.comrades {
       background-image: url('../assets/comrades.png');
+    }
+
+    &.boat-wheel {
+      background-image: url('../assets/boat-wheel.png');
+      background-position: center bottom;
+      background-size: 70%;
     }
   }
 

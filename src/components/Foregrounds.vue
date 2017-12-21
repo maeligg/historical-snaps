@@ -1,6 +1,10 @@
 <template>
   <form>
     <h2>Foregrounds</h2>
+    <input type="radio" id="frame" name="filters" value="frame" @change="updateForeground">
+    <label for="frame">Frame</label>
+    <input type="radio" id="boat-wheel" name="filters" value="boat-wheel" @change="updateForeground">
+    <label for="boat-wheel">Boat wheel</label>
     <input type="radio" id="comrades" name="filters" value="comrades" @change="updateForeground">
     <label for="comrades">Chillin' with my comrades</label>
   </form>
