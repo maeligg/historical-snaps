@@ -57,7 +57,7 @@
   };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   @import url('https://fonts.googleapis.com/css?family=Roboto');
 
   @font-face {
@@ -73,7 +73,7 @@
   }
 
   #app {
-    min-height: 100vh;
+    padding: 2rem 0;
     box-shadow: inset 0px 0px 200px 10px hsla(0,0%,0%,.75);
     background-color: #E2B88E;
   }
@@ -85,7 +85,9 @@
 
   h1 {
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 0;
     font-size: 3rem;
     font-family: 'Old English Five', sans-serif;
@@ -93,11 +95,21 @@
 
   .camera {
     width: 150px;
-    margin: 0 0 0 20px;
+    margin: 2rem;
   }
 
   .main-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+      grid-gap: 0;
+    }
+  }
+
+  .sidebar {
+    padding: 2rem;
   }
 </style>

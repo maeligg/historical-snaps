@@ -125,23 +125,23 @@
 <style lang="scss" scoped>
   .webcam {
     position: relative;
-    width: 500px;
+    width: 100%;
     height: 400px;
-    margin-right: 40px;
-    border: 2px solid #000;
+    margin: 0 auto;
+    overflow: hidden;
   }
 
   .foreground, .canvas, .video {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
   }
 
   .foreground {
+    width: 500px;
+    height: 100%;
     z-index: 10;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
     &.frame {
