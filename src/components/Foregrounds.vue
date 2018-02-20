@@ -1,19 +1,19 @@
 <template>
   <form>
     <h2>Foregrounds</h2>
-    <Radio id="none" text="None" name="foreground" @valueUpdated="updateForeground"></Radio>
-    <Radio id="frame" text="Frame" name="foreground" @valueUpdated="updateForeground"></Radio>
-    <Radio id="boat-wheel" text="Boat wheel" name="foreground" @valueUpdated="updateForeground"></Radio>
-    <Radio id="comrades" text="Chillin' with my comrades" name="foreground" @valueUpdated="updateForeground"></Radio>
+    <RadioButton id="none" text="None" name="foreground" @valueUpdated="updateForeground"></RadioButton>
+    <RadioButton id="frame" text="Frame" name="foreground" @valueUpdated="updateForeground"></RadioButton>
+    <RadioButton id="boat-wheel" text="Boat wheel" name="foreground" @valueUpdated="updateForeground"></RadioButton>
+    <RadioButton id="comrades" text="Chillin' with my comrades" name="foreground" @valueUpdated="updateForeground"></RadioButton>
   </form>
 </template>
 
 <script>
-  import Radio from './Radio';
+  import RadioButton from './RadioButton';
 
   export default {
     name: 'Foregrounds',
-    components: { Radio },
+    components: { RadioButton },
     props: ['change-foreground'],
     methods: {
       updateForeground(e) {

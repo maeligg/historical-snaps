@@ -1,20 +1,18 @@
 <template>
   <form>
     <h2>Filters</h2>
-    <Radio id="sepia" name="filters" text="Sepia" checked="true" @valueUpdated="updateFilter"></Radio>
-    <Radio id="grayscale" name="filters" text="Grayscale" checked="false" @valueUpdated="updateFilter"></Radio>
-    <Radio id="no-filter" name="filters" text="#NoFilter" checked="false" @valueUpdated="updateFilter"></Radio>
-    <!-- <input type="radio" id="sepia" name="filters" value="sepia" :checked="filter === 'sepia' ? 'checked' : null" @change="updateFilter">
-    <label for="sepia">Sepia</label> -->
+    <RadioButton id="sepia" name="filters" text="Sepia" checked="true" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="grayscale" name="filters" text="Grayscale" checked="false" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="no-filter" name="filters" text="#NoFilter" checked="false" @valueUpdated="updateFilter"></RadioButton>
   </form>
 </template>
 
 <script>
-  import Radio from './Radio';
+  import RadioButton from './RadioButton';
 
   export default {
     name: 'Filters',
-    components: { Radio },
+    components: { RadioButton },
     props: ['filter', 'change-filter'],
     methods: {
       updateFilter(e) {
