@@ -10,6 +10,7 @@
           <Foregrounds :change-foreground="changeForeground"></Foregrounds>
         </section>
       </div>
+      <Footer></Footer>
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@
   import Filters from './components/Filters';
   import Accessories from './components/Accessories';
   import Foregrounds from './components/Foregrounds';
+  import Footer from './components/Footer';
 
   export default {
     name: 'app',
@@ -28,6 +30,7 @@
       Filters,
       Accessories,
       Foregrounds,
+      Footer,
     },
     data() {
       return {
@@ -73,7 +76,7 @@
   }
 
   #app {
-    padding: 2rem 0;
+    padding: 2rem 0 0;
     box-shadow: inset 0px 0px 200px 10px hsla(0,0%,0%,.75);
     background-color: #E2B88E;
   }
