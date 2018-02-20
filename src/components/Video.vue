@@ -1,20 +1,20 @@
 <template>
   <main>
     <section class="webcam" :class="filter">
-    <div class="foreground" :class="foreground" ref="foreground"></div>
-    <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
-    <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
+      <div class="foreground" :class="foreground" ref="foreground"></div>
+      <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
+      <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
 
-    <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
-    <img src="../assets/bowler-hat.png" alt="" ref="bowlerHat" class="accessory">
-    <img src="../assets/handlebar-mustache.png" alt="" ref="handlebarMustache" class="accessory">
-    <img src="../assets/toothbrush-mustache.png" alt="" ref="toothbrushMustache" class="accessory">
-    <img src="../assets/dali-mustache.png" alt="" ref="daliMustache" class="accessory">
-    <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
-    <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
-    <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
-  </section>
-  <button class="snapshot-button" @mouseover="randomiseText" @click="takePicture">
+      <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
+      <img src="../assets/bowler-hat.png" alt="" ref="bowlerHat" class="accessory">
+      <img src="../assets/handlebar-mustache.png" alt="" ref="handlebarMustache" class="accessory">
+      <img src="../assets/toothbrush-mustache.png" alt="" ref="toothbrushMustache" class="accessory">
+      <img src="../assets/dali-mustache.png" alt="" ref="daliMustache" class="accessory">
+      <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
+      <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
+      <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
+    </section>
+    <button class="snapshot-button" @mouseover="randomiseText" @click="takePicture">
       Take the shot
       <div class="photographer-wrapper">
         <img src="../assets/photographer.svg" alt="photographer" class="photographer">
@@ -27,8 +27,9 @@
 </template>
 
 <script>
-  require('tracking');
-  require('tracking/build/data/face');
+  import 'tracking';
+  import 'tracking/build/data/face';
+  import cameraSound from '../assets/camera-sound.mp3';
 
   const tracker = new tracking.ObjectTracker('face');
   let canvas;
@@ -90,7 +91,7 @@
           },
         },
         photographerText: '',
-        textArray: ['Beautiful !', 'Gimme a smile !', 'Stand still now.', 'Don\'t move.'],
+        textArray: ['A beautiful pose !', 'Give me a smile !', 'Stand still now.', 'Don\'t move.', 'Hold still please.', 'You look terrific.'],
       };
     },
 
@@ -136,6 +137,9 @@
         this.photographerText = this.textArray[Math.floor(Math.random() * this.textArray.length)];
       },
       takePicture: function takePic() {
+        const audio = new Audio(cameraSound);
+        audio.play();
+
         const picCanvas = document.createElement('canvas');
         picCanvas.width = 500;
         picCanvas.height = 400;
@@ -157,6 +161,7 @@
         picWrapper.addEventListener('click', function() {
           this.classList.toggle('open');
         });
+
         this.$refs.pictures.appendChild(picWrapper);
       },
     },
