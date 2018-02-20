@@ -13,6 +13,7 @@
       <Checkbox id="marxBeard" text="Marx beard" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="monocle" text="Monocle" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="smokingPipe" text="Smoking pipe" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="cthulhu" text="Fhtagn" @valueUpdated="updateAccessories"></Checkbox>
     </div>
   </form>
 </template>

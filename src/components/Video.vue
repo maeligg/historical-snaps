@@ -16,6 +16,7 @@
       <img src="../assets/dali-mustache.png" alt="" ref="daliMustache" class="accessory">
       <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
       <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
+      <img src="../assets/cthulhu.png" alt="" ref="cthulhu" class="accessory">
 
       <img src="../assets/frame.png" alt="" ref="frame" class="foreground">
       <img src="../assets/boat-wheel.png" alt="" ref="boat-wheel" class="foreground">
@@ -78,7 +79,7 @@
             filterX: -0.05,
             filterY: -0.45,
             filterWidth: 1.2,
-            filterHeight: 1,
+            filterHeight: 1.2,
           },
           handlebarMustache: {
             filterX: 0.27,
@@ -100,7 +101,7 @@
           },
           marxBeard: {
             filterX: 0.03,
-            filterY: 0.6,
+            filterY: 0.5,
             filterWidth: 1,
             filterHeight: 1,
           },
@@ -115,6 +116,12 @@
             filterY: 0.7,
             filterWidth: 0.6,
             filterHeight: 0.6,
+          },
+          cthulhu: {
+            filterX: -0.8,
+            filterY: -0.4,
+            filterWidth: 2.5,
+            filterHeight: 2.5,
           },
         },
         photographerText: '',
