@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <section class="webcam" :class="filter">
     <div class="foreground" :class="foreground" ref="foreground"></div>
     <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
@@ -23,7 +23,7 @@
     </button>
 
     <div class="pictures" ref="pictures"></div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -157,6 +157,10 @@
 </script>
 
 <style lang="scss" scoped>
+  main {
+    width: 500px;
+  }
+
   .webcam {
     position: relative;
     width: 100%;
@@ -213,7 +217,7 @@
     padding: .5rem 1rem;
     border: 1px solid #000;;
     border-radius: 4px;
-    background-color: #af845a;
+    background-image: linear-gradient(to bottom, #E2B88E, #af845a);
     cursor: pointer;
 
     &::before {

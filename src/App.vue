@@ -99,33 +99,12 @@
   }
 
   .main-wrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 20px;
-
-    @media (max-width: 800px) {
-      grid-template-columns: 1fr;
-      grid-gap: 0;
-    }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .sidebar {
     padding: 0 2rem;
-    grid-column: 2 / -1;
-    grid-row: 1 / 4;
-
-    @media (max-width: 800px) {
-      grid-column: 1 / -1;
-      grid-row: 3
-    }
-  }
-
-  .snapshot {
-    grid-column: 1;
-    grid-row: 2;
-
-    @media (max-width: 800px) {
-      grid-row: 2;
-    }
   }
 </style>

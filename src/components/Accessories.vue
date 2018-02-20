@@ -1,14 +1,16 @@
 <template>
   <form>
     <h2>Accessories</h2>
-    <Checkbox id="topHat" text="Top hat" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="bowlerHat" text="Bowler hat" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="cheBeret" text="El Che's beret" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="handlebarMustache" text="Handlebar mustache" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="toothbrushMustache" text="Toothbrush mustache<br>(guaranteed 0% fascist)" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="daliMustache" text="Dali mustache" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="monocle" text="Monocle" @valueUpdated="updateAccessories"></Checkbox>
-    <Checkbox id="smokingPipe" text="Smoking pipe" @valueUpdated="updateAccessories"></Checkbox>
+    <div class="accessories-wrapper">
+      <Checkbox id="topHat" text="Top hat" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="bowlerHat" text="Bowler hat" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="cheBeret" text="El Che's beret" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="handlebarMustache" text="Handlebar mustache" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="toothbrushMustache" text="Toothbrush mustache<br>(guaranteed 0% fascist)" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="daliMustache" text="Dali mustache" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="monocle" text="Monocle" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="smokingPipe" text="Smoking pipe" @valueUpdated="updateAccessories"></Checkbox>
+    </div>
   </form>
 </template>
 
