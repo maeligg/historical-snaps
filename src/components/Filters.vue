@@ -1,9 +1,9 @@
 <template>
   <form>
     <h2>Filters</h2>
-    <RadioButton id="sepia" name="filters" text="Sepia" checked="true" @valueUpdated="updateFilter"></RadioButton>
-    <RadioButton id="grayscale" name="filters" text="Grayscale" checked="false" @valueUpdated="updateFilter"></RadioButton>
-    <RadioButton id="no-filter" name="filters" text="#NoFilter" checked="false" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="sepia" name="filters" text="Sepia" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="grayscale" name="filters" text="Grayscale" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="no-filter" name="filters" text="#NoFilter" @valueUpdated="updateFilter"></RadioButton>
   </form>
 </template>
 

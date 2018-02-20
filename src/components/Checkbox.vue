@@ -8,7 +8,7 @@
 <script>
   export default {
     name: 'Chexbox',
-    props: ['id', 'name', 'text'],
+    props: ['id', 'name', 'isChecked', 'text'],
     methods: {
       updateValue(e) {
         this.$emit('valueUpdated', e);

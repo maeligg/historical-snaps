@@ -9,6 +9,8 @@
           <Accessories :change-accessories="changeAccessories"></Accessories>
           <Foregrounds :change-foreground="changeForeground"></Foregrounds>
         </section>
+        <!-- <Snapshot class="snapshot" @newPicTaken="takeScreenShot"></Snapshot> -->
+        <!-- <div class="pictures" ref="pictures"></div> -->
       </div>
     </div>
   </div>
@@ -20,6 +22,7 @@
   import Filters from './components/Filters';
   import Accessories from './components/Accessories';
   import Foregrounds from './components/Foregrounds';
+  // import Snapshot from './components/Snapshot';
 
   export default {
     name: 'app',
@@ -28,10 +31,11 @@
       Filters,
       Accessories,
       Foregrounds,
+      // Snapshot,
     },
     data() {
       return {
-        selectedFilter: 'sepia',
+        selectedFilter: 'noFilter',
         accessories: [],
         selectedForeground: '',
       };
@@ -110,6 +114,22 @@
   }
 
   .sidebar {
-    padding: 2rem;
+    padding: 0 2rem;
+    grid-column: 2 / -1;
+    grid-row: 1 / 4;
+
+    @media (max-width: 800px) {
+      grid-column: 1 / -1;
+      grid-row: 3
+    }
+  }
+
+  .snapshot {
+    grid-column: 1;
+    grid-row: 2;
+
+    @media (max-width: 800px) {
+      grid-row: 2;
+    }
   }
 </style>

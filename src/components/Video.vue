@@ -1,8 +1,10 @@
 <template>
-  <section class="webcam" :class="filter">
-    <div class="foreground" :class="foreground"></div>
-    <video class="video" width="500" height="400" preload autoplay loop muted></video>
+  <div>
+    <section class="webcam" :class="filter">
+    <div class="foreground" :class="foreground" ref="foreground"></div>
+    <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
     <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
+
     <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
     <img src="../assets/bowler-hat.png" alt="" ref="bowlerHat" class="accessory">
     <img src="../assets/handlebar-mustache.png" alt="" ref="handlebarMustache" class="accessory">
@@ -12,6 +14,16 @@
     <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
     <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
   </section>
+  <button class="snapshot-button" @mouseover="randomiseText" @click="takePicture">
+      Take the shot
+      <div class="photographer-wrapper">
+        <img src="../assets/photographer.svg" alt="photographer" class="photographer">
+        <div class="photographer-bubble">{{ photographerText }}</div>
+      </div>
+    </button>
+
+    <div class="pictures" ref="pictures"></div>
+  </div>
 </template>
 
 <script>
@@ -25,7 +37,6 @@
   export default {
     name: 'Video',
     props: ['filter', 'accessories', 'foreground'],
-
     data() {
       return {
         topHat: {
@@ -76,6 +87,8 @@
           filterWidth: 1,
           filterHeight: 1,
         },
+        photographerText: '',
+        textArray: ['Beautiful !', 'Gimme a smile !', 'Stand still now.', 'Don\'t move.'],
       };
     },
 
@@ -86,8 +99,7 @@
 
     methods: {
       initTracking() {
-        canvas = this.$refs.myCanvas;
-        canvas = document.querySelector('.canvas');
+        canvas = this.$refs.canvas;
         context = canvas.getContext('2d');
 
         tracker.setInitialScale(4);
@@ -118,6 +130,28 @@
           }
         });
       },
+      randomiseText: function randomText() {
+        this.photographerText = this.textArray[Math.floor(Math.random() * this.textArray.length)];
+      },
+      takePicture: function takePic() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 500;
+        canvas.height = 400;
+        const ctx = canvas.getContext('2d');
+
+        if (this.filter !== 'no-filter') {
+          ctx.filter = `${this.filter}(100)`;
+        }
+        ctx.drawImage(this.$refs.video, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(this.$refs.canvas, 0, 0, canvas.width, canvas.height);
+
+        const dataURI = canvas.toDataURL('image/jpeg');
+
+        const newPic = new Image();
+        newPic.src = dataURI;
+        newPic.style.cssText = 'width: 100px; margin: .5rem;';
+        this.$refs.pictures.appendChild(newPic);
+      }
     },
   };
 </script>
@@ -169,5 +203,81 @@
 
   .accessory {
     display: none;
+  }
+
+  .snapshot-button {
+    position: relative;
+    z-index: 10;
+    display: block;
+    margin: 1rem auto;
+    padding: .5rem 1rem;
+    border: 1px solid #000;;
+    border-radius: 4px;
+    background-color: #af845a;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      right: 10px;
+      width: 10px;
+      height: 6px;
+      background-color: #000;
+      transition: all .2s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        top: -2px;
+        height: 2px;
+      }
+
+      @media (min-width: 800px) {
+        .photographer-wrapper {
+          left: 0;
+        }
+
+        .photographer-bubble {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .photographer-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: -200px;
+    width: 200px;
+    transition: all .2s ease-in-out;
+  }
+
+  .photographer-bubble {
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    padding: 2rem;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all .2s ease-in-out;
+    transition-delay: .4s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: 50%;
+      height: 1px;
+      transform: rotate(-45deg);
+      width: 30px;
+      background-color: #000;
+    }
+  }
+
+  .picture {
+    width: 100px;
   }
 </style>
