@@ -158,7 +158,7 @@
         const picWrapper = document.createElement('span');
         picWrapper.classList.add('picture');
         picWrapper.appendChild(newPic);
-        picWrapper.addEventListener('click', function() {
+        picWrapper.addEventListener('click', function toggleOpen() {
           this.classList.toggle('open');
         });
 
