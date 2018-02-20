@@ -39,53 +39,55 @@
     props: ['filter', 'accessories', 'foreground'],
     data() {
       return {
-        topHat: {
-          filterX: 0,
-          filterY: -0.7,
-          filterWidth: 1,
-          filterHeight: 1,
-        },
-        bowlerHat: {
-          filterX: 0,
-          filterY: -0.65,
-          filterWidth: 1,
-          filterHeight: 1,
-        },
-        handlebarMustache: {
-          filterX: 0.27,
-          filterY: 0.48,
-          filterWidth: 0.5,
-          filterHeight: 0.5,
-        },
-        toothbrushMustache: {
-          filterX: 0.42,
-          filterY: 0.65,
-          filterWidth: 0.2,
-          filterHeight: 0.2,
-        },
-        daliMustache: {
-          filterX: 0.23,
-          filterY: 0.4,
-          filterWidth: 0.6,
-          filterHeight: 0.6,
-        },
-        monocle: {
-          filterX: -0.15,
-          filterY: 0.3,
-          filterWidth: 0.9,
-          filterHeight: 0.9,
-        },
-        smokingPipe: {
-          filterX: 0.3,
-          filterY: 0.7,
-          filterWidth: 0.6,
-          filterHeight: 0.6,
-        },
-        cheBeret: {
-          filterX: 0,
-          filterY: -0.6,
-          filterWidth: 1,
-          filterHeight: 1,
+        accessoriesData: {
+          topHat: {
+            filterX: 0,
+            filterY: -0.7,
+            filterWidth: 1,
+            filterHeight: 1,
+          },
+          bowlerHat: {
+            filterX: 0,
+            filterY: -0.65,
+            filterWidth: 1,
+            filterHeight: 1,
+          },
+          handlebarMustache: {
+            filterX: 0.27,
+            filterY: 0.48,
+            filterWidth: 0.5,
+            filterHeight: 0.5,
+          },
+          toothbrushMustache: {
+            filterX: 0.42,
+            filterY: 0.65,
+            filterWidth: 0.2,
+            filterHeight: 0.2,
+          },
+          daliMustache: {
+            filterX: 0.23,
+            filterY: 0.4,
+            filterWidth: 0.6,
+            filterHeight: 0.6,
+          },
+          monocle: {
+            filterX: -0.15,
+            filterY: 0.3,
+            filterWidth: 0.9,
+            filterHeight: 0.9,
+          },
+          smokingPipe: {
+            filterX: 0.3,
+            filterY: 0.7,
+            filterWidth: 0.6,
+            filterHeight: 0.6,
+          },
+          cheBeret: {
+            filterX: 0,
+            filterY: -0.6,
+            filterWidth: 1,
+            filterHeight: 1,
+          },
         },
         photographerText: '',
         textArray: ['Beautiful !', 'Gimme a smile !', 'Stand still now.', 'Don\'t move.'],
@@ -114,7 +116,7 @@
             context.clearRect(0, 0, canvas.width, canvas.height);
 
             listOfAccessories.forEach((accessory) => {
-              const accessoryData = this.$data[accessory];
+              const accessoryData = this.$data.accessoriesData[accessory];
               const img = new Image();
               img.src = this.$refs[accessory].src;
               e.data.forEach((rect) => {
@@ -149,14 +151,19 @@
 
         const newPic = new Image();
         newPic.src = dataURI;
-        newPic.style.cssText = 'width: 100px; margin: .5rem;';
-        this.$refs.pictures.appendChild(newPic);
+        const picWrapper = document.createElement('span');
+        picWrapper.classList.add('picture');
+        picWrapper.appendChild(newPic);
+        picWrapper.addEventListener('click', function() {
+          this.classList.toggle('open');
+        });
+        this.$refs.pictures.appendChild(picWrapper);
       },
     },
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   main {
     width: 500px;
   }
@@ -282,6 +289,30 @@
   }
 
   .picture {
-    width: 100px;
+    cursor: pointer;
+
+    img {
+      width: 100px;
+      margin: .5rem;
+    }
+
+    &.open {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsla(0, 0, 0, .7);
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        margin: 0;
+      }
+    }
   }
 </style>
