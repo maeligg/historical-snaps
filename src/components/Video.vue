@@ -142,10 +142,10 @@
         if (this.filter !== 'no-filter') {
           ctx.filter = `${this.filter}(100)`;
         }
-        ctx.drawImage(this.$refs.video, 0, 0, canvas.width, canvas.height);
-        ctx.drawImage(this.$refs.canvas, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(this.$refs.video, 0, 0, picCanvas.width, picCanvas.height);
+        ctx.drawImage(this.$refs.canvas, 0, 0, picCanvas.width, picCanvas.height);
 
-        const dataURI = canvas.toDataURL('image/jpeg');
+        const dataURI = picCanvas.toDataURL('image/jpeg');
 
         const newPic = new Image();
         newPic.src = dataURI;
