@@ -1,7 +1,6 @@
 <template>
   <main>
     <section class="webcam" :class="filter">
-      <div class="foreground" :class="foreground" ref="foreground"></div>
       <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
       <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
 
@@ -13,6 +12,10 @@
       <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
       <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
       <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
+
+      <img src="../assets/frame.png" alt="" ref="frame" class="foreground">
+      <img src="../assets/boat-wheel.png" alt="" ref="boat-wheel" class="foreground">
+      <img src="../assets/comrades.png" alt="" ref="comrades" class="foreground">
     </section>
 
     <button class="snapshot-button" @mouseover="randomiseText" @click="takePicture">
@@ -106,32 +109,36 @@
 
     mounted() {
       this.initTracking();
-      this.renderAccessories(this.accessories);
+      this.renderCanvas();
     },
 
     methods: {
-      initTracking() {
-        canvas = this.$refs.canvas;
-        context = canvas.getContext('2d');
+      applyForground() {
 
+      },
+
+      initTracking() {
         tracker.setInitialScale(4);
         tracker.setStepSize(2);
         tracker.setEdgesDensity(0.1);
         tracking.track('.video', tracker, { camera: true });
       },
 
-      renderAccessories(listOfAccessories) {
+      renderCanvas() {
+        canvas = this.$refs.canvas;
+        context = canvas.getContext('2d');
+
         tracker.on('track', (e) => {
           if (e.data.length) {
             context.clearRect(0, 0, canvas.width, canvas.height);
 
-            listOfAccessories.forEach((accessory) => {
+            this.accessories.forEach((accessory) => {
               const accessoryData = this.$data.accessoriesData[accessory];
-              const img = new Image();
-              img.src = this.$refs[accessory].src;
+              const accessoryImg = new Image();
+              accessoryImg.src = this.$refs[accessory].src;
               e.data.forEach((rect) => {
                 context.drawImage(
-                  img,
+                  accessoryImg,
                   rect.x + (accessoryData.filterX * rect.width),
                   rect.y + (accessoryData.filterY * rect.height),
                   rect.width * accessoryData.filterWidth,
@@ -139,6 +146,19 @@
                 );
               });
             });
+
+            if (this.foreground !== 'none') {
+              const foregroundImg = new Image();
+              foregroundImg.src = this.$refs[this.foreground].src;
+
+              context.drawImage(
+                foregroundImg,
+                0,
+                0,
+                canvas.width,
+                canvas.height,
+              );
+            }
           }
         });
       },
@@ -198,28 +218,6 @@
     left: 0;
   }
 
-  .foreground {
-    width: 500px;
-    height: 100%;
-    z-index: 10;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    &.frame {
-      background-image: url('../assets/frame.png');
-    }
-
-    &.comrades {
-      background-image: url('../assets/comrades.png');
-    }
-
-    &.boat-wheel {
-      background-image: url('../assets/boat-wheel.png');
-      background-position: center bottom;
-      background-size: 70%;
-    }
-  }
-
   .grayscale {
     filter: grayscale(1);
   }
@@ -228,7 +226,7 @@
     filter: sepia(1);
   }
 
-  .accessory {
+  .accessory, .foreground {
     display: none;
   }
 
@@ -236,7 +234,7 @@
     position: relative;
     z-index: 10;
     display: block;
-    margin: 1rem auto;
+    margin: 2rem auto 1rem;
     padding: 3rem 1rem 1rem;
     border: none;
     border-radius: 4px;
@@ -258,7 +256,7 @@
     &::after {
       content: "";
       position: absolute;
-      top: 10px;
+      top: 15px;
       left: 50%;
       transform: translateX(-50%);
       width: 20px;

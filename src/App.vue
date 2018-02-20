@@ -33,7 +33,7 @@
       return {
         selectedFilter: 'noFilter',
         accessories: [],
-        selectedForeground: '',
+        selectedForeground: 'none',
       };
     },
     methods: {
