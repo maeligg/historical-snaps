@@ -14,6 +14,7 @@
       <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
       <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
     </section>
+
     <button class="snapshot-button" @mouseover="randomiseText" @click="takePicture">
       Take the shot
       <div class="photographer-wrapper">
@@ -91,7 +92,15 @@
           },
         },
         photographerText: '',
-        textArray: ['A beautiful pose !', 'Give me a smile !', 'Stand still now.', 'Don\'t move.', 'Hold still please.', 'You look terrific.'],
+        textArray: [
+          'A beautiful pose !',
+          'Give me a smile !',
+          'Stand still now.',
+          'Don\'t move.',
+          'Hold still please.',
+          'You look terrific.',
+          'Look at the camera.',
+        ],
       };
     },
 
@@ -163,6 +172,8 @@
         });
 
         this.$refs.pictures.appendChild(picWrapper);
+
+        this.randomiseText();
       },
     },
   };
@@ -226,10 +237,11 @@
     z-index: 10;
     display: block;
     margin: 1rem auto;
-    padding: .5rem 1rem;
-    border: 1px solid #000;;
+    padding: 3rem 1rem 1rem;
+    border: none;
     border-radius: 4px;
-    background-image: linear-gradient(to bottom, #E2B88E, #af845a);
+    background-color: #000;
+    color: #fff;
     cursor: pointer;
 
     &::before {
@@ -241,6 +253,18 @@
       height: 6px;
       background-color: #000;
       transition: all .2s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #fff;
     }
 
     &:hover {
@@ -266,6 +290,7 @@
     bottom: 0;
     left: -200px;
     width: 200px;
+    color: #000;
     transition: all .2s ease-in-out;
   }
 
