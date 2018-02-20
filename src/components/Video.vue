@@ -6,12 +6,15 @@
 
       <img src="../assets/top-hat.png" alt="" ref="topHat" class="accessory">
       <img src="../assets/bowler-hat.png" alt="" ref="bowlerHat" class="accessory">
+      <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
+      <img src="../assets/captain-hat.png" alt="" ref="captainHat" class="accessory">
+      <img src="../assets/powdered-wig.png" alt="" ref="powderedWig" class="accessory">
       <img src="../assets/handlebar-mustache.png" alt="" ref="handlebarMustache" class="accessory">
       <img src="../assets/toothbrush-mustache.png" alt="" ref="toothbrushMustache" class="accessory">
+      <img src="../assets/marx-beard.png" alt="" ref="marxBeard" class="accessory">
       <img src="../assets/dali-mustache.png" alt="" ref="daliMustache" class="accessory">
       <img src="../assets/monocle.png" alt="" ref="monocle" class="accessory">
       <img src="../assets/smoking-pipe.png" alt="" ref="smokingPipe" class="accessory">
-      <img src="../assets/che-beret.png" alt="" ref="cheBeret" class="accessory">
 
       <img src="../assets/frame.png" alt="" ref="frame" class="foreground">
       <img src="../assets/boat-wheel.png" alt="" ref="boat-wheel" class="foreground">
@@ -57,6 +60,24 @@
             filterWidth: 1,
             filterHeight: 1,
           },
+          cheBeret: {
+            filterX: -0.1,
+            filterY: -0.6,
+            filterWidth: 1.2,
+            filterHeight: 1.1,
+          },
+          captainHat: {
+            filterX: -0.1,
+            filterY: -0.7,
+            filterWidth: 1.2,
+            filterHeight: 1,
+          },
+          powderedWig: {
+            filterX: -0.05,
+            filterY: -0.45,
+            filterWidth: 1.2,
+            filterHeight: 1,
+          },
           handlebarMustache: {
             filterX: 0.27,
             filterY: 0.48,
@@ -75,6 +96,12 @@
             filterWidth: 0.6,
             filterHeight: 0.6,
           },
+          marxBeard: {
+            filterX: 0.03,
+            filterY: 0.6,
+            filterWidth: 1,
+            filterHeight: 1,
+          },
           monocle: {
             filterX: -0.15,
             filterY: 0.3,
@@ -86,12 +113,6 @@
             filterY: 0.7,
             filterWidth: 0.6,
             filterHeight: 0.6,
-          },
-          cheBeret: {
-            filterX: 0,
-            filterY: -0.6,
-            filterWidth: 1,
-            filterHeight: 1,
           },
         },
         photographerText: '',

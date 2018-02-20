@@ -5,9 +5,12 @@
       <Checkbox id="topHat" text="Top hat" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="bowlerHat" text="Bowler hat" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="cheBeret" text="El Che's beret" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="captainHat" text="Captain's hat" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="powderedWig" text="Powdered wig" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="handlebarMustache" text="Handlebar mustache" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="toothbrushMustache" text="Toothbrush mustache<br>(guaranteed 0% fascist)" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="daliMustache" text="Dali mustache" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="marxBeard" text="Marx beard" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="monocle" text="Monocle" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="smokingPipe" text="Smoking pipe" @valueUpdated="updateAccessories"></Checkbox>
     </div>
