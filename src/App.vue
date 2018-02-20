@@ -9,8 +9,6 @@
           <Accessories :change-accessories="changeAccessories"></Accessories>
           <Foregrounds :change-foreground="changeForeground"></Foregrounds>
         </section>
-        <!-- <Snapshot class="snapshot" @newPicTaken="takeScreenShot"></Snapshot> -->
-        <!-- <div class="pictures" ref="pictures"></div> -->
       </div>
     </div>
   </div>
@@ -22,7 +20,6 @@
   import Filters from './components/Filters';
   import Accessories from './components/Accessories';
   import Foregrounds from './components/Foregrounds';
-  // import Snapshot from './components/Snapshot';
 
   export default {
     name: 'app',
@@ -31,7 +28,6 @@
       Filters,
       Accessories,
       Foregrounds,
-      // Snapshot,
     },
     data() {
       return {

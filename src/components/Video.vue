@@ -134,10 +134,10 @@
         this.photographerText = this.textArray[Math.floor(Math.random() * this.textArray.length)];
       },
       takePicture: function takePic() {
-        const canvas = document.createElement('canvas');
-        canvas.width = 500;
-        canvas.height = 400;
-        const ctx = canvas.getContext('2d');
+        const picCanvas = document.createElement('canvas');
+        picCanvas.width = 500;
+        picCanvas.height = 400;
+        const ctx = picCanvas.getContext('2d');
 
         if (this.filter !== 'no-filter') {
           ctx.filter = `${this.filter}(100)`;
@@ -151,7 +151,7 @@
         newPic.src = dataURI;
         newPic.style.cssText = 'width: 100px; margin: .5rem;';
         this.$refs.pictures.appendChild(newPic);
-      }
+      },
     },
   };
 </script>
