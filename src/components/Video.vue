@@ -1,6 +1,7 @@
 <template>
   <main>
     <section class="webcam" :class="filter">
+      <div class="error-message" v-if="error">Sorry, it looks like you don't have a webcam or I couldn't detect it. 😞</div>
       <video class="video" width="500" height="400" preload autoplay loop muted ref="video"></video>
       <canvas class="canvas" width="500" height="400" ref="canvas"></canvas>
 
@@ -47,12 +48,13 @@
     props: ['filter', 'accessories', 'foreground'],
     data() {
       return {
+        error: true,
         accessoriesData: {
           topHat: {
             filterX: 0,
             filterY: -0.7,
-            filterWidth: 1,
-            filterHeight: 1,
+            filterWidth: 1.1,
+            filterHeight: 1.1,
           },
           bowlerHat: {
             filterX: 0,
@@ -134,10 +136,6 @@
     },
 
     methods: {
-      applyForground() {
-
-      },
-
       initTracking() {
         tracker.setInitialScale(4);
         tracker.setStepSize(2);
@@ -148,6 +146,10 @@
       renderCanvas() {
         canvas = this.$refs.canvas;
         context = canvas.getContext('2d');
+
+        tracker.once('track', () => {
+          this.error = false;
+        });
 
         tracker.on('track', (e) => {
           if (e.data.length) {
