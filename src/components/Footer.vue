@@ -1,7 +1,6 @@
 <template>
   <footer>
-    <span class="copyright">© <a href="https://www.maelbrunet.com/" target=_blank>Maël Brunet</a> 2018. All visual and audio assets are public domain or CC0.</span>
-    <span class="source"><a href="https://github.com/maeligg/historical-snaps" target=_blank>Source code</a> available on GitHub.</span>
+    <span class="copyright">© <a href="https://github.com/maeligg/historical-snaps" target=_blank>Maël Brunet 2018</a>. All visual and audio assets are public domain or CC0.</span>
     <div class="disclaimer">I decline any responsibility for anachronisms and historical inconsistencies.</div>
   </footer>
 </template>
