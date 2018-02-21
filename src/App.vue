@@ -34,8 +34,8 @@
     },
     data() {
       return {
-        selectedFilter: 'noFilter',
-        accessories: [],
+        selectedFilter: 'sepia',
+        accessories: ['topHat'],
         selectedForeground: 'none',
       };
     },

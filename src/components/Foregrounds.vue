@@ -1,7 +1,7 @@
 <template>
   <form>
     <h2>Foregrounds</h2>
-    <RadioButton id="none" text="None" name="foreground" @valueUpdated="updateForeground"></RadioButton>
+    <RadioButton id="none" text="None" name="foreground" @valueUpdated="updateForeground" isChecked=true></RadioButton>
     <RadioButton id="frame" text="Frame" name="foreground" @valueUpdated="updateForeground"></RadioButton>
     <RadioButton id="boat-wheel" text="Boat wheel" name="foreground" @valueUpdated="updateForeground"></RadioButton>
     <RadioButton id="comrades" text="Chillin' with my comrades" name="foreground" @valueUpdated="updateForeground"></RadioButton>

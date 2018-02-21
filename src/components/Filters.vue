@@ -1,7 +1,7 @@
 <template>
   <form>
     <h2>Filters</h2>
-    <RadioButton id="sepia" name="filters" text="Sepia" @valueUpdated="updateFilter"></RadioButton>
+    <RadioButton id="sepia" name="filters" text="Sepia" @valueUpdated="updateFilter" isChecked=true></RadioButton>
     <RadioButton id="grayscale" name="filters" text="Grayscale" @valueUpdated="updateFilter"></RadioButton>
     <RadioButton id="no-filter" name="filters" text="#NoFilter" @valueUpdated="updateFilter"></RadioButton>
   </form>

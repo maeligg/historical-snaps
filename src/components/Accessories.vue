@@ -2,7 +2,7 @@
   <form>
     <h2>Accessories</h2>
     <div class="accessories-wrapper">
-      <Checkbox id="topHat" text="Top hat" @valueUpdated="updateAccessories"></Checkbox>
+      <Checkbox id="topHat" text="Top hat" @valueUpdated="updateAccessories" isChecked=true></Checkbox>
       <Checkbox id="bowlerHat" text="Bowler hat" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="cheBeret" text="El Che's beret" @valueUpdated="updateAccessories"></Checkbox>
       <Checkbox id="captainHat" text="Captain's hat" @valueUpdated="updateAccessories"></Checkbox>

@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrapper">
-    <input type="checkbox" :id="id" :value="id" @change="updateValue">
+    <input type="checkbox" :id="id" :value="id" @change="updateValue" :checked="isChecked ? true : null">
     <label :for="id" v-html="text"></label>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
   export default {
     name: 'Chexbox',
-    props: ['id', 'name', 'isChecked', 'text'],
+    props: ['id', 'name', 'isChecked', 'text', 'isChecked'],
     methods: {
       updateValue(e) {
         this.$emit('valueUpdated', e);

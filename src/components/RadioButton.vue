@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="radio" :id="id" :name="name" :value="id" @change="updateValue">
+    <input type="radio" :id="id" :name="name" :value="id" @change="updateValue" :checked="isChecked ? true : null">
     <label :for="id">{{text}}</label>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
   export default {
     name: 'Radio',
-    props: ['id', 'name', 'text'],
+    props: ['id', 'name', 'text', 'isChecked'],
     methods: {
       updateValue(e) {
         this.$emit('valueUpdated', e);
